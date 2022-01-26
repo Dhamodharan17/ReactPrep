@@ -1,0 +1,25 @@
+import{ React,useState} from 'react';
+import ReactDOM, { render} from 'react-dom';
+
+function App(){
+
+  const [money, setMoney] = useState(1000);
+
+const increment = ()=>{
+
+  setMoney(money+500);
+}
+
+  return(
+<div>
+  <h1>{money}</h1>
+  <button onClick={increment}>ADD</button>
+</div>
+
+  )
+}
+
+ReactDOM.render(
+  <App/>,
+  document.getElementById('root')
+);
