@@ -150,5 +150,31 @@ export default class App extends Component {
   }
 }
 
+Rendering Array Elements
+--------------------------
+
+import React, { Component } from "react";
+export default class App extends Component {
+  users = [
+    { name: "bala", age: 23 },
+    { name: "som", age: 24 },
+    { name: "kar", age: 25 },
+  ];
+
+  render() {
+    return (
+      <div>
+        {(this.users || []).map((user, index,userArray) => {
+          return (
+            <div key={index}>
+              <span>{user.name}</span>
+              <span>{user.age}</span>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
+}
 
   
