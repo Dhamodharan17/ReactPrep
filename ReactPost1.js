@@ -116,5 +116,39 @@ export default class App extends Component {
   }
 }
 
+4.render using function
+import React, { Component } from 'react'
+export default class App extends Component {
+
+  state = {
+    count: 0
+  }
+
+  handleChange = () =>{
+    this.setState({count:this.state.count+1})
+  }
+
+  renderer = () =>{
+    let conditional_element = null;
+    if(this.state.count % 5 == 0){
+      conditional_element = <p>You got offer</p>
+    }else{
+      conditional_element = <p>wait got offer</p>
+    }
+    return conditional_element;
+  }
+
+  render() {
+    
+    return (
+      <div>
+        Count : {this.state.count}
+      {this.renderer()}
+       <button onClick={this.handleChange}>Click to Change</button>
+      </div>
+    )
+  }
+}
+
 
   
