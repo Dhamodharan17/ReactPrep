@@ -23,5 +23,23 @@ const printName = (name) =>{
 const App = <div>Hi {printName("Dhamodharan")}</div>
 ReactDOM.render(App,document.getElementById('root'))
 
+case 3 :
+
+import React from "react";
+import ReactDOM from "react-dom";
+
+const validateAge = (age) => {
+  if (age >= 18) {
+    return <span>License Approved</span>;
+  } else {
+    return <span>License Rejected</span>;
+  }
+};
+
+const App = <div>{validateAge(18)}</div>;
+
+ReactDOM.render(App, document.getElementById("root"));
+
+
 ES6
 ---
