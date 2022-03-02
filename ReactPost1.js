@@ -43,3 +43,19 @@ ReactDOM.render(App, document.getElementById("root"));
 
 ES6
 ---
+1.Let vs const
+function printPrice(){
+    {
+        let price = 100;
+    }
+    console.log(price)
+}
+
+printPrice() // Output : ReferenceError: price is not defined
+
+function printPrice(){
+    {
+        var price = 100;
+    }
+    console.log(price) //Output : 100
+}
