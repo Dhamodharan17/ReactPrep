@@ -119,3 +119,40 @@ const CounterDisplay = (props) => {
 };
 
 
+----------------------------------------------------------------------------------
+UseState
+
+array destrcuting from useState()
+
+const [counter,setCounter] = useState(50);
+counter - state
+setCounter - modify
+50 - initail or default value
+
+import React, { useState } from 'react'
+
+export default function UseStateHook() {
+
+    const [increment,setIncrement] = useState(50);
+    const [toggle,setToggle] = useState(false);
+
+    const incrementMe = () =>{
+        setIncrement((prevInc)=>prevInc+1)
+    }
+
+    const toggleMe = () =>{
+        setToggle((prevToggle)=>!toggle)
+    }
+  return (
+    <div>
+        <p>useState</p>
+        <p>Increment value {increment}</p>
+        <button onClick={incrementMe}>Increment</button>
+        <button onClick={toggleMe}>{toggle ? 'on' : 'off'}</button>
+    </div>
+  )
+
+
+}
+----------------------------------------------------------------------------------
+
