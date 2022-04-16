@@ -1,3 +1,5 @@
+State and Props in class components
+
 import React, { Component } from "react";
 
 export default class StateProps extends Component {
