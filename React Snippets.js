@@ -155,4 +155,109 @@ export default function UseStateHook() {
 
 }
 ----------------------------------------------------------------------------------
+useEffect
+
+useEffect(
+  ()=>{
+    console.log('syntax')
+  }
+)
+
+runs everytime the component renders (not only first time)
+
+should be inside the component hence it will come under the component scope.
+
+case 1 : useEffect should run only once
+
+useEffect(
+  ()=>{
+    console.log('syntax')
+  },[])
+
+sln : Passing dependency array
+
+Case 2 : Run useEffect when particular state changes
+
+useEffect(
+  ()=>{
+    console.log('syntax')
+  },[increment])
+
+case 3 : component unmount clean up activity
+
+later
+
+API call example
+----------------
+
+npm install axios
+
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+export default function useEffectHook() {
+  const [loading, setLoading] = useState(false);
+  const [todosdata, setTodosData] = useState([]);
+
+  // Can be run only once
+  useEffect(() => {
+    async function getTodosData() {
+      setLoading(true);
+      const responsedata = await axios.get(
+        "https://jsonplaceholder.typicode.com/todos"
+      );
+      setLoading(false);
+      setTodosData(responsedata.data);
+    }
+    getTodosData();
+  }, []);
+
+  return (
+    <div>
+      <p>Functional Component - API Call</p>
+      {loading?(<p>Loading</p>):(
+          <ol>
+              {todosdata.map((todoitem,i)=>{
+                  return <li key={i}>{todoitem.title}-({todoitem.completed?"Done":"WIP"})</li>
+              })}
+          </ol>
+      )}
+    </div>
+  );
+}
+
+----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
